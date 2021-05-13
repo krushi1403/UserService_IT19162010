@@ -15,8 +15,6 @@
 <script src = "Components/jquery-3.6.0.min.js"></script>
 <script src = "Components/user.js"></script>
 
-
-
 </head>
 <body>
 
@@ -47,7 +45,7 @@
 		<input id="profileInfo" name="profileInfo" type="text" class="form-control form-control-sm"><br>
 		
 		
-		<input id="btnSave" name="btnSave" type="button" value="Register" class="btn btn-primary">
+		<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
 		<input type="hidden" id="hidUserIDSave" name="hidUserIDSave" value="">
 	</form>
     
@@ -57,12 +55,12 @@
     <br>
 	<div id="divItemsGrid">
 
-	
+	<%-- 
 	<%
 	//User userObj = new User();
 	out.print("Register success");
 	
-	%>
+	%> --%>
 	</div>
 
 <br>

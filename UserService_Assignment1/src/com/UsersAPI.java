@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.User;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import model.User;
 
 
 /**
@@ -104,7 +104,7 @@ public class UsersAPI extends HttpServlet {
 		
 		Map paras = getParasMap(request);
 		
-		String output = userObj.deleteUser(paras.get("type").toString(),paras.get("userID").toString());
+		String output = userObj.deleteUser(paras.get("userType").toString(),paras.get("userID").toString());
 		
 		response.getWriter().write(output);
 		

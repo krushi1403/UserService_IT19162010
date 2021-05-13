@@ -47,7 +47,7 @@ public class User {
 	 
 	 /*********************Prepare the html table for the consumer to be displayed***********************/
 	 if (type.equals("consumer") || type.equals("Consumer")) { 
-	output = "<table border='1'><tr><th>Consumer ID</th><th>Consumer Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" +"<th>update</th>" + "<th>Delete</th></tr>";
+	output = "<table border='1'><tr><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" +"<th>update</th>" + "<th>Delete</th></tr>";
 		 
 	 String query = "select * from consumer";
 	 Statement stmt = con.createStatement();
@@ -57,7 +57,7 @@ public class User {
 	 while (rs.next())
 	 {
 	 String consumerID = Integer.toString(rs.getInt("userID"));
-	 String consumerCode = rs.getNString("userCode");
+	 String consumerCode = rs.getString("userCode");
 	 String userName = rs.getString("userName");
 	 String password = rs.getString("password");
 	 String email = rs.getString("email");
@@ -72,20 +72,20 @@ public class User {
 	 
 	 // Add into the html table
 
-	 		output += "<tr><td>" + consumerID + "</td>";
-			output += "<td>" + consumerCode + "</td>";	
+	
 			output += "<td>" + userName + "</td>";	
 			output += "<td>" + password + "</td>";	 
 			output += "<td>" + email + "</td>";
 			output += "<td>" + address + "</td>";	 
 			output += "<td>" + dob + "</td>";
 			output += "<td>" + phone + "</td>";
+			
+			String t = "consumer";
 		 
-	 // buttons
-	 output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary' data-userid='" + consumerID + "'></td>"
-	 + "<td><form method='post' action='items.jsp'>"+ "<input name='btnRemove' type='submit' value='Remove'class='btn btn-danger' data-userid='" + consumerID + "'>"
-	 + "<input name='itemID' type='hidden' value='" + consumerID
-	 + "'>" + "</form></td></tr>";
+			output += "<td><input name='btnUpdate' type='button' value='Update' "
+					+ "class='btnUpdate btn btn-secondary' data-userid='" + consumerID + "'></td>"
+					+ "<td><input name='btnRemove' type='button' value='Remove' "
+					+ "class='btnRemove btn btn-danger' data-userid='" + consumerCode + "'></td></tr>"; 
 	 }
 	 con.close();
 	 // Complete the html table
@@ -96,7 +96,7 @@ public class User {
 	 if (type.equals("manufacturer") || type.equals("Manufacturer")) {
 		 
 		// Prepare the html table to be displayed
-		 output = "<table border='1'><tr><th>Manufacture ID</th><th>Manufacture Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" +"<th>Description</th>"+"<th>update</th>" + "<th>Delete</th></tr>";
+		 output = "<table border='1'><tr><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" +"<th>Description</th>"+"<th>update</th>" + "<th>Delete</th></tr>";
 
 		 String query = "select * from manufacturer";
 		 Statement stmt = con.createStatement();
@@ -116,8 +116,7 @@ public class User {
 		 String desc = rs.getString("desc");
 		 
 		 // Add into the html table
-		 output += "<tr><td>" + manufacturerID + "</td>";
-		 output += "<td>" + manufacturerCode + "</td>";
+		 
 		 output += "<td>" + userName + "</td>";
 		 output += "<td>" + password + "</td>";
 		 output += "<td>" + email + "</td>";
@@ -125,11 +124,14 @@ public class User {
 		 output += "<td>" + dob + "</td>";
 		 output += "<td>" + phone + "</td>";
 		 output += "<td>" + desc + "</td>";
+		
+		 String t = "manufacturer";
+		 
 		 // buttons
-		 output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary' data-userid='" + manufacturerID + "'></td>"
-		 + "<td><form method='post' action='items.jsp'>"+ "<input name='btnRemove' type='submit' value='Remove'class='btn btn-danger' data-userid='" + manufacturerID + "'>"
-		 + "<input name='itemID' type='hidden' value='" + manufacturerID
-		 + "'>" + "</form></td></tr>";
+		 output += "<td><input name='btnUpdate' type='button' value='Update' "
+					+ "class='btnUpdate btn btn-secondary' data-userid='" + manufacturerID + "'></td>"
+					+ "<td><input name='btnRemove' type='button' value='Remove' "
+					+ "class='btnRemove btn btn-danger' data-userid='" + manufacturerID + "' data-userType='" + t + "'></td></tr>"; 
 		 }
 		 con.close();
 		 // Complete the html table
@@ -141,7 +143,7 @@ public class User {
        if (type.equals("researcher") || type.equals("Researcher")) {
 		 
 	 	// Prepare the html table to be displayed
-	 	output = "<table border='1'><tr><th>Researcher ID</th><th>Researcher Code</th><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" +"<th>profileInfo</th>"+"<th>update</th>" + "<th>Delete</th></tr>";
+	 	output = "<table border='1'><tr><th>User Name</th>" +"<th>Password</th>" +"<th> Gmail</th>" +"<th>Address</th>"+"<th>DOB</th>" + "<th>phone</th>" +"<th>profileInfo</th>"+"<th>update</th>" + "<th>Delete</th></tr>";
 
 		 String query = "select * from researcher";
 		 Statement stmt = con.createStatement();
@@ -161,8 +163,7 @@ public class User {
 		 String profile = rs.getString("profileInfo");
 		 
 		 // Add into the html table
-		 output += "<tr><td>" + researcherID + "</td>";
-		 output += "<td>" + researcherCode + "</td>";
+		 
 		 output += "<td>" + userName + "</td>";
 		 output += "<td>" + password + "</td>";
 		 output += "<td>" + email + "</td>";
@@ -170,11 +171,14 @@ public class User {
 		 output += "<td>" + dob + "</td>";
 		 output += "<td>" + phone + "</td>";
 		 output += "<td>" + profile + "</td>";
+		
+		 String t = "researcher";
+		 
 		 // buttons
-		 output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary' data-userid='" + researcherID + "'></td>"
-		 + "<td><form method='post' action='items.jsp'>"+ "<input name='btnRemove' type='submit' value='Remove'class='btn btn-danger' data-userid='" + researcherID + "'>"
-		 + "<input name='itemID' type='hidden' value='" + researcherID
-		 + "'>" + "</form></td></tr>";
+		 output += "<td><input name='btnUpdate' type='button' value='Update' "
+					+ "class='btnUpdate btn btn-secondary' data-userid='" + researcherID + "'></td>"
+					+ "<td><input name='btnRemove' type='button' value='Remove' "
+					+ "class='btnRemove btn btn-danger' data-userid='" + researcherID + "' data-userType='" + t + "'></td></tr>"; 
 		 }
 		 con.close();
 		 // Complete the html table
