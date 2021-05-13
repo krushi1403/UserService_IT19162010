@@ -133,26 +133,23 @@ $("#phone").val($(this).closest("tr").find('td:eq(5)').text());
 
 })
 
-
 $(document).on("click", ".btnRemove", function(event)
 {
-	var data = "userID="+ + $(this).data("userid") + "&userType=" + +$(this).data("userType");
-	
 $.ajax(
 {
 url : "UsersAPI",
 type : "DELETE",
-data :"userID="+ + $(this).data("userid"),
+data : "userID="+ + $(this).data("usercode"),
 dataType : "text",
 complete : function(response, status)
 {
-onItemDeleteComplete(response.responseText, status);
+onUserDeleteComplete(response.responseText, status);
 }
 });
 })
 
 
-function onItemDeleteComplete(response, status)
+function onUserDeleteComplete(response, status)
 {
 if (status == "success")
 {

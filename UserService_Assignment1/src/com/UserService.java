@@ -84,7 +84,7 @@ public class UserService {
 	}
 	
 	
-	@DELETE
+	/*@DELETE
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.TEXT_PLAIN)
@@ -97,7 +97,7 @@ public class UserService {
 	 String userID = doc.select("userID").text();
 	 String output = userObj.deleteUser(type,userID);
 	return output;
-	}
+	}*/
 	
 	
 

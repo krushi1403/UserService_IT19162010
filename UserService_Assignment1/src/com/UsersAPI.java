@@ -104,7 +104,7 @@ public class UsersAPI extends HttpServlet {
 		
 		Map paras = getParasMap(request);
 		
-		String output = userObj.deleteUser(paras.get("userType").toString(),paras.get("userID").toString());
+		String output = userObj.deleteUser(paras.get("userID").toString());
 		
 		response.getWriter().write(output);
 		
