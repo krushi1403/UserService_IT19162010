@@ -55,12 +55,24 @@
     <br>
 	<div id="divItemsGrid">
 
-	<%-- 
+	 
 	<%
-	//User userObj = new User();
-	out.print("Register success");
+	String type1 = "consumer";
+	String type2 = "manufacturer";
+	String type3 = "researcher";
+	User userObj = new User();
+	out.print("Consumer Details");
+	out.print(userObj.readUsers(type1));
+	out.println();
+	out.println();
+	out.print("Manufacturer Details");
+	out.println();
+	out.println();
+	out.print(userObj.readUsers(type2));
+	out.print("Researcher Details");
+	out.print(userObj.readUsers(type3));
 	
-	%> --%>
+	%> 
 	</div>
 
 <br>
